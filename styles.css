@@ -142,15 +142,19 @@ margin-bottom:60px;
 }
 
 .btn-instagram{
-display:inline-block;
-margin-top:20px;
-padding:14px 30px;
-background:#b5835a;
-color:white;
-border-radius:30px;
-text-decoration:none;
-font-weight:bold;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    margin-top:20px;
+    padding:14px 30px;
+    background:#b5835a;
+    color:white;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
 }
+
 
 footer{
 text-align:center;
