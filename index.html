@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>LuzeLoop | Crochet Artesanal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/png" href="imagenes/logo_luzeloop.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="hero">
+    <div class="hero-content">
+        <img src="imagenes/logo_luzeloop.jpg" class="logo-header" alt="Logo LuzeLoop">
+        <h1>LuzeLoop</h1>
+        <p class="hero-sub">Crochet artesanal hecho con amor y dedicación 🧶</p>
+    </div>
+</header>
+
+<div class="menu-toggle" onclick="toggleMenu()">
+    ☰
+</div>
+
+<nav class="menu" id="mobileMenu">
+<a href="#sobre">🧵 Sobre mí</a>
+<a href="#galeria">🖼️ Galería</a>
+<a href="#proceso">✂️ Proceso</a>
+<a href="#testimonios">⭐ Testimonios</a>
+<a href="#contacto">✉️ Encargos & Contacto</a>
+</nav> 
+
+<section id="sobre" class="section fade-section">
+<h2>Sobre mí</h2>
+<p>
+Soy la persona detrás de LuzeLoop, un pequeño proyecto artesanal nacido
+de la pasión por el crochet y la creatividad hecha a mano.
+</p>
+
+<p>
+Cada pieza que creo comienza con una idea, una combinación de colores o
+una inspiración que poco a poco se transforma en algo único.
+El proceso es completamente manual, cuidando cada detalle, cada punto
+y cada acabado.
+</p>
+
+<p>
+Para mí, el crochet no es solo una técnica, es una forma de expresión.
+Busco que cada diseño transmita calidez, dedicación y personalidad,
+creando piezas especiales que puedan acompañarte durante mucho tiempo.
+</p>
+
+<p>
+Muchas de mis creaciones nacen de referencias e inspiraciones compartidas, 
+que reinterpretó y adapto para darles forma a través de mi propio proceso creativo,
+siempre poniendo el mismo cariño y compromiso en cada proyecto.
+</p>
+
+</section>
+
+<section id="galeria" class="section galeria fade-section">
+<h2>Galería</h2>
+<div class="grid">
+<img src="imagenes/1.jpg" onclick="abrirLightbox(this)">
+<img src="imagenes/2.jpg" onclick="abrirLightbox(this)">
+<img src="imagenes/3.jpg" onclick="abrirLightbox(this)">
+<img src="imagenes/4.jpg" onclick="abrirLightbox(this)">
+<img src="imagenes/5.jpg" onclick="abrirLightbox(this)">
+<img src="imagenes/6.jpg" onclick="abrirLightbox(this)">
+<img src="imagenes/7.jpg" onclick="abrirLightbox(this)">
+<img src="imagenes/8.jpg" onclick="abrirLightbox(this)">
+</div>
+</section>
+
+<section id="proceso" class="section fade-section">
+<h2>Mi proceso creativo</h2>
+<p>
+Cada pieza comienza con una idea o una inspiración que poco a poco
+se transforma en un diseño único.
+</p>
+
+<p>
+Selecciono cuidadosamente los hilos y materiales,
+cuidando cada detalle durante el tejido para asegurar
+un acabado artesanal de calidad.
+</p>
+
+<p>
+Todo el proceso se realiza a mano, con paciencia y dedicación,
+porque cada creación de LuzeLoop es más que un producto:
+es una pieza hecha con cariño.
+</p>
+</section>
+
+<section id="testimonios" class="section testimonios fade-section">
+<h2>Lo que dicen de mis trabajos</h2>
+<div class="testimonios-grid">
+    <div class="card">
+        <p>"Una calidad increíble y un trato maravilloso."</p>
+        <span>⭐⭐⭐⭐⭐</span>
+    </div>
+    <div class="card">
+        <p>"El encargo personalizado quedó incluso mejor de lo que imaginaba."</p>
+        <span>⭐⭐⭐⭐⭐</span>
+    </div>
+    <div class="card">
+        <p>"Repetiré sin duda. Trabajo artesanal precioso."</p>
+        <span>⭐⭐⭐⭐⭐</span>
+    </div>
+</div>
+</section>
+
+<section id="contacto" class="section contacto fade-section">
+<h2>Encargos & Contacto</h2>
+<p>Si quieres encargar algún producto personalizado contáctame a través de Instagram.</p>
+<a class="btn-instagram" href="https://www.instagram.com/luzeloop/" target="_blank">Contactar por Instagram</a>
+</section>
+
+<footer>
+<p>© 2026 LuzeLoop · Crochet Artesanal</p>
+</footer>
+
+<div id="lightbox" class="lightbox">
+<span class="cerrar" onclick="cerrarLightbox()">&times;</span>
+<img id="lightbox-img" class="lightbox-img">
+</div>
+
+<script>
+// Lightbox
+function abrirLightbox(img){
+document.getElementById("lightbox").style.display="flex";
+document.getElementById("lightbox-img").src=img.src;
+}
+function cerrarLightbox(){
+document.getElementById("lightbox").style.display="none";
+}
+document.getElementById("lightbox").addEventListener("click",function(e){
+if(e.target.id==="lightbox"){cerrarLightbox();}
+});
+
+// Animación al hacer scroll
+const sections = document.querySelectorAll('.fade-section');
+
+const observer = new IntersectionObserver(entries => {
+entries.forEach(entry => {
+if(entry.isIntersecting){
+entry.target.classList.add('visible');
+}
+});
+},{ threshold: 0.15 });
+
+sections.forEach(section => {
+observer.observe(section);
+});
+function toggleMenu(){
+    const menu = document.getElementById("mobileMenu");
+    menu.classList.toggle("active");
+}
+
+/* Cerrar al pulsar un enlace */
+const menuLinks = document.querySelectorAll("#mobileMenu a");
+
+menuLinks.forEach(link => {
+    link.addEventListener("click", () => {
+        document.getElementById("mobileMenu").classList.remove("active");
+    });
+});
+/* Cerrar al hacer scroll */
+window.addEventListener("scroll", () => {
+    const menu = document.getElementById("mobileMenu");
+    menu.classList.remove("active");
+});
+</script>
+
+</body>
+</html>
