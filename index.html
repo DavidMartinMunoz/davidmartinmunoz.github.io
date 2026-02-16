@@ -115,9 +115,8 @@ es una pieza hecha con cariño.
 <p>Si quieres encargar algún producto personalizado contáctame a través de Instagram.</p>
 <a 
   class="btn-instagram" 
-  href="https://instagram.com/luzeloop" 
-  target="_blank" 
-  rel="noopener noreferrer">
+  href="https://instagram.com/luzeloop"
+  onclick="openInstagram(event)">
   Contactar por Instagram
 </a>
 </section>
@@ -176,6 +175,22 @@ window.addEventListener("scroll", () => {
     const menu = document.getElementById("mobileMenu");
     menu.classList.remove("active");
 });
+
+function openInstagram(e){
+    e.preventDefault();
+
+    const username = "luzeloop";
+    const appLink = "instagram://user?username=" + username;
+    const webLink = "https://instagram.com/" + username;
+
+    // Intentar abrir app
+    window.location.href = appLink;
+
+    // Si no funciona, abrir web después de pequeño retraso
+    setTimeout(function(){
+        window.location.href = webLink;
+    }, 800);
+}
 </script>
 
 </body>
